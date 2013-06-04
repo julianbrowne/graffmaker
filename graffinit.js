@@ -2,56 +2,58 @@
 var neo   = require('neo4j');
 var mw    = require('./lib/fixtures');
 var utils = require('./lib/utils');
-var types = require('./data');
+var obj   = require('./data');
 
 var db = new neo.GraphDatabase(process.env.NEO4J_URL || 'http://localhost:7474');
 
 /**
- *  Add team nodes to Neo
+ *  Add nodes to Neo
 **/
 
-var teamNodes = [];
+lgr = function(e,n) {
+    if(e)
+        throw(e);
+    else {
+        console.log(n.data);
 
-for(var i=0; i< grpsToCreate; i++) {
+        n.index('nodeIndex', 'name', n.data.name);
 
-    var teamNode = db.createNode({ name: MugWall.teamNames[i], type: 'team'});
+        var cypher = [
+            "START n=node(*)",
+            "RETURN n;"
+        ].join("\n");
 
-    teamNode.save(function(err, team) {
-        if(!err) {
-            teamNodes.push(team);
-            team.index('teamIndex', 'name', team.data.name, mw.errorHandler );
-            team.index('teamIndex', 'type', team.data.type, mw.errorHandler );
-        } else {
-            console.error('*** ERROR: ' + err);
-        }
-    });
+        db.query(cypher, {}, function(e, r) {
+            var items = [];
+            if(r) {
+                r.map(function(i){ items.push(i['n']); });
+                console.log('node count => ' + items.length);
+            }
+        });
+    }
+};
 
-}
+db.createNode(new obj.model.Person("John",  "Smith")).save(lgr);
+db.createNode(new obj.model.Person("Brian", "Jones")).save(lgr);
 
-/**
- *  Create Mugs and assign to random team
-**/
+db.createNode(new obj.model.Home("Home")).save(lgr);
+db.createNode(new obj.model.Home("Home")).save(lgr);
+db.createNode(new obj.model.Home("Home")).save(lgr);
 
-for(var i=0; i<mugsToCreate; i++) {
+db.createNode(new obj.model.Room("Living Room")).save(lgr);
+db.createNode(new obj.model.Room("Kitchen")).save(lgr);
+db.createNode(new obj.model.Room("Bedroom")).save(lgr);
 
-    var gender = utils.randomElemFrom(['male', 'female']);
+db.createNode(new obj.model.Room("Living Room")).save(lgr);
+db.createNode(new obj.model.Room("Study")).save(lgr);
 
-    var personNode = db.createNode({
-        type: 'person',
-        firstName: utils.randomElemFrom(mw.firstNames[gender]),
-        lastName:  utils.randomElemFrom(mw.lastNames),
-        gender:    gender,
-        photoHref: '/assets/photos/' + gender + '-' + Math.floor(Math.random()*17) + '.jpg'
-    });
+db.createNode(new obj.model.Room("Living Room")).save(lgr);
+db.createNode(new obj.model.Room("Dining Room")).save(lgr);
 
-    personNode.save(function(e, p){
-        if(!e) {
-            mw.addPersonToRandomTeam(p, teamNodes);
-            p.index('peopleIndex', 'firstName', p.data.firstName);
-            p.index('peopleIndex', 'lastName',  p.data.lastName);
-        } else {
-            console.error('*-* ERROR: ' + e);
-        }
-    });
+db.createNode(new obj.model.Gas("Gas Acc.")).save(lgr);
+db.createNode(new obj.model.Electricity("Elec. Acc.")).save(lgr);
+db.createNode(new obj.model.DuelFuel("Duel Fuel")).save(lgr);
 
-}
+db.createNode(new obj.model.Device("Thermostat", "AlertMe", "Emporer")).save(lgr);
+db.createNode(new obj.model.Device("Thermostat", "Nest", "3.5")).save(lgr);
+db.createNode(new obj.model.Device("Humidity", "XBee", "ZB")).save(lgr);
