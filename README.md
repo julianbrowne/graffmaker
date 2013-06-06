@@ -1,6 +1,5 @@
 
 ##Graffinit
-=========
 
 Simple data generation partner tool for Graffeine. Creates simple graph structures for testing in Neo4J.
 
@@ -21,7 +20,7 @@ This is only so you can do this OO kind of thing later:
 
 	new Car('Honda', 'CRV', '2.2', 5);
 	
-Edit graffinit.js to actually populate Neo4J with some data
+Edit populate.js to actually populate Neo4J with some data
 
     model.createNode(new type.Person("John", "Smith"))
         .then(
@@ -49,4 +48,4 @@ Both model.connectTo and model.connectFrom take an array of objects of the form 
     	.then(model.connectTo([{node: {name: 'cybermen', type: 'cyborg' }, rel: 'enemy'}]))
     	.then(model.connectTo([{node: {name: 'Mondas', type: 'planet' }, rel: 'originates'}]));
 
-
+This example is included in the file populate.js
