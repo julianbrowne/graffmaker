@@ -1,7 +1,6 @@
 
 var model = require('./lib/models').actions;
-var type  = require('./lib/data').types;
-var util  = require('util');
+var type  = require('./data').types;
 
 model.createNode(new type.Person("Brian", "Jones"))
     .then(
