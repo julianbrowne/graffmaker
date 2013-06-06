@@ -49,3 +49,8 @@ Both model.connectTo and model.connectFrom take an array of objects of the form 
     	.then(model.connectTo([{node: {name: 'Mondas', type: 'planet' }, rel: 'originates'}]));
 
 This example is included in the file populate.js
+
+To actually do the population first make sure Neo4J is running (lib/models.js expects it to be local machine) and then simply run:
+
+    node populate
+
