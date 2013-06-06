@@ -18,14 +18,14 @@ e.g.
 
 This is only so you can do this OO kind of thing later:
 
-	new Car('Honda', 'CRV', '2.2', 5);
+	new type.Car('Honda', 'CRV', '2.2', 5);
 	
 Edit populate.js to actually populate Neo4J with some data
 
     model.createNode(new type.Person("John", "Smith"))
         .then(
             model.connectTo([
-                { node: new type.Car("Acc #123"), rel: 'drives' },
+                { node: new Car('Honda', 'CRV', '2.2', 5), rel: 'drives' },
                 { node: new type.Home("Flat 2B"), rel: 'lives-in' }
             ])
         )
