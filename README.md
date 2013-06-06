@@ -30,7 +30,7 @@ Edit populate.js to actually populate Neo4J with some data
             ])
         )
     
-Graph connections can be chained, with the last node created (the Home in the exampe above), being passed to the next 'then' clause.
+Graph connections can be chained, with the last node created (the Home in the example above), being passed to the next 'then' clause.
 
 Relationships work both ways so
 
