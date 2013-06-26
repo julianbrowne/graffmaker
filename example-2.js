@@ -2,25 +2,25 @@
 var model = require('./lib/models').actions;
 
 var Person = new model.define("firstName", "lastName");
-var Home   = new model.define("name");
-var Room   = new model.define("name");
+var Home = new model.define("name");
+var Room = new model.define("name");
 
 var p1 = new Person("Alan", "Turing");
 var p2 = new Person("Brian", "Jones");
 var p3 = new Person("Ian", "Curtis");
 var p4 = new Person("Tommy", "Flowers");
 
-var h1  = new Home("Alan's House");
-var h2  = new Home("Another House");
-var h3  = new Home("A Smart Flat");
-var h4  = new Home("Holiday Home");
-var h5  = new Home("Caravan");
+var h1 = new Home("Alan's House");
+var h2 = new Home("Another House");
+var h3 = new Home("A Smart Flat");
+var h4 = new Home("Holiday Home");
+var h5 = new Home("Caravan");
 
-var r1  = new Room("Kitchen");
-var r2  = new Room("Dining Room");
-var r3  = new Room("Hall");
-var r4  = new Room("Bedroom");
-var r5  = new Room("Basement");
+var r1 = new Room("Kitchen");
+var r2 = new Room("Dining Room");
+var r3 = new Room("Hall");
+var r4 = new Room("Bedroom");
+var r5 = new Room("Basement");
 
 model.createNode(p1)
     .then(model.connectTo([
