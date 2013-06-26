@@ -18,5 +18,6 @@
 
 #local test files
 
+.*
 ch.js
 ceres.js
