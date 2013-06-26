@@ -1,5 +1,5 @@
 
-var model  = require('./lib/models').actions;
+var model = require('./lib/models').actions;
 
 var Person = new model.define("firstName", "lastName");
 var Home   = new model.define("name");
