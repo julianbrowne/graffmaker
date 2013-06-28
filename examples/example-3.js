@@ -1,5 +1,5 @@
 
-var model = require('./lib/model').actions;
+var model = require('graffmaker');
 
 var Character = model.define("character");
 var Species = model.define("species");

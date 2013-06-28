@@ -1,5 +1,5 @@
 
-var model = require('./lib/model').actions;
+var model = require('graffmaker');
 
 var Car = new model.define("make", "model", "engine", "seats");
 var Person = new model.define("firstName", "lstName");

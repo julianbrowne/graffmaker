@@ -1,5 +1,5 @@
 
-var model = require('./lib/model').actions;
+var model = require('graffmaker');
 
 var Person = new model.define("firstName", "lastName");
 var Home = new model.define("name");
