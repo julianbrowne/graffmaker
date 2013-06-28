@@ -1,5 +1,5 @@
 
-var model = require('./lib/models').actions;
+var model = require('./lib/model').actions;
 
 var Car = new model.define("make", "model", "engine", "seats");
 var Person = new model.define("firstName", "lstName");

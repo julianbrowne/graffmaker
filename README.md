@@ -10,7 +10,7 @@ Creates simple graph structures for testing and playing around with ideas in Neo
 
 Include the models library: 
 
-    var model = require('./lib/models').actions;
+    var model = require('./lib/model').actions;
 
 ####Defines "Types" of Node
 
