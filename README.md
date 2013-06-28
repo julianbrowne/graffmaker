@@ -12,9 +12,19 @@ Creates simple graph structures for testing and playing around with ideas in Neo
 
 ####Include Library
 
-Include the models library: 
+Include the graffmaker library: 
 
-    var model = require('graffmaker');
+    var gm = require('graffmaker');
+
+Connect to Neo4J:
+
+    var model = gm.connect();       // connects to 'http://localhost:7474'
+
+or
+
+    var model = gm.connect('http://host:port');
+
+Now you have a model object to do stuff with
 
 ####Defines "Types" of Node
 
@@ -26,7 +36,7 @@ Define the node structures you want to use by calling model.define with all the 
 
 This is so you can do this kind of OO thing later:
 
-	var myCar = new Car('Honda', 'CRV', '2.2', 5);
+    var myCar = new Car('Honda', 'CRV', '2.2', 5);
 
 then:
 
@@ -35,7 +45,7 @@ then:
 That's one node in the database. Sorted.
 
 ####Make Nodes and Relationships
-	
+    
 Or actually populate Neo4J with some useful data:
 
     model.createNode(new Person("John", "Smith"))
@@ -52,19 +62,19 @@ Graph connections can be chained, with the last node created (the Home in the ex
 
 Relationships work both ways so
 
-	model.connectTo()
+    model.connectTo()
 
 joins the previously created node to the current one and
 
-	model.connectFrom()
+    model.connectFrom()
 
 joins the current node to the previous
 
 Both model.connectTo and model.connectFrom take an array of objects of the form (node: …, rel: …} where node is the graph node data and rel is the relationship required between this one and the previous. It's therefore entirely acceptable to skip the pseudo OO step above and simply call:
 
-	model.createNode({name: 'Dr Who', type: 'timelord'})
-    	.then(model.connectTo([{node: {name: 'cybermen', type: 'cyborg' }, rel: 'enemy'}]))
-    	.then(model.connectTo([{node: {name: 'Mondas', type: 'planet' }, rel: 'originates'}]));
+    model.createNode({name: 'Dr Who', type: 'timelord'})
+        .then(model.connectTo([{node: {name: 'cybermen', type: 'cyborg' }, rel: 'enemy'}]))
+        .then(model.connectTo([{node: {name: 'Mondas', type: 'planet' }, rel: 'originates'}]));
 
 To actually do the population first make sure Neo4J is running (lib/models.js expects it to be local machine) and then simply run:
 
