@@ -1,7 +1,8 @@
 
 ##Graffmaker
 
-Simple data generation partner tool for Graffeine. Creates simple graph structures for testing in Neo4J.
+Straighforward data generation tool for neo4J.   
+Creates simple graph structures for testing and playing around with ideas in Neo4J.   
 
 ###Using Graffmaker
 
@@ -11,9 +12,9 @@ Include the models library:
 
     var model = require('./lib/models').actions;
 
-####Defines "Types"
+####Defines "Types" of Node
 
-Define the node structures you want to use:
+Define the node structures you want to use by calling model.define with all the fields you want to be available in the node:
 
     var Car    = new model.define("make", "model", "engine", "seats");
     var Person = new model.define("firstName", "lstName");
@@ -21,11 +22,17 @@ Define the node structures you want to use:
 
 This is so you can do this kind of OO thing later:
 
-	new Car('Honda', 'CRV', '2.2', 5);
+	var myCar = new Car('Honda', 'CRV', '2.2', 5);
+
+then:
+
+    model.createNode(myCar);
+
+That's one node in the database. Sorted.
 
 ####Make Nodes and Relationships
 	
-Now we can actually populate Neo4J with some data:
+Or actually populate Neo4J with some useful data:
 
     model.createNode(new Person("John", "Smith"))
         .then(
@@ -35,7 +42,7 @@ Now we can actually populate Neo4J with some data:
             ])
         );
 
-This entire example can be found in the example-1.js file
+(note: example code may be found in example-1.js, example-2.js, example-3.js)
     
 Graph connections can be chained, with the last node created (the Home in the example above), being passed to the next 'then' clause.
 
