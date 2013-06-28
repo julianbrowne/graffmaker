@@ -1,5 +1,7 @@
 
-var model = require('graffmaker');
+var gm = require('graffmaker');
+
+var model = new gm.connect();
 
 var Character = model.define("character");
 var Species = model.define("species");

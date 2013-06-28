@@ -1,5 +1,7 @@
 
-var model = require('graffmaker');
+var gm = require('graffmaker');
+
+var model = new gm.connect();
 
 var Car = new model.define("make", "model", "engine", "seats");
 var Person = new model.define("firstName", "lstName");

@@ -1,5 +1,7 @@
 
-var model = require('graffmaker');
+var gm = require('graffmaker');
+
+var model = new gm.connect();
 
 var Person = new model.define("firstName", "lastName");
 var Home = new model.define("name");
