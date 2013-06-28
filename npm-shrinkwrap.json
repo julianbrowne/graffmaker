@@ -1,0 +1,26 @@
+{
+  "name": "graffmaker",
+  "version": "0.0.0",
+  "dependencies": {
+    "neo4j": {
+      "version": "0.2.20",
+      "dependencies": {
+        "coffee-script": {
+          "version": "1.3.3"
+        },
+        "http-status": {
+          "version": "0.1.1"
+        },
+        "request": {
+          "version": "2.9.203"
+        },
+        "streamline": {
+          "version": "0.4.11"
+        }
+      }
+    },
+    "rsvp": {
+      "version": "1.2.0"
+    }
+  }
+}

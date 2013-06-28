@@ -6,11 +6,15 @@ Creates simple graph structures for testing and playing around with ideas in Neo
 
 ###Using Graffmaker
 
+####Install
+
+    npm install graffmaker
+
 ####Include Library
 
 Include the models library: 
 
-    var model = require('./lib/model').actions;
+    var model = require('graffmaker');
 
 ####Defines "Types" of Node
 
