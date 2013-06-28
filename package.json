@@ -1,6 +1,6 @@
 {
   "name": "graffmaker",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Graph building DSL for Neo4J",
   "main": "main.js",
   "dependencies": {
