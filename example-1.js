@@ -1,9 +1,9 @@
 
 var model = require('./lib/models').actions;
 
-var Car    = new model.define("make", "model", "engine", "seats");
+var Car = new model.define("make", "model", "engine", "seats");
 var Person = new model.define("firstName", "lstName");
-var Home   = new model.define("name");
+var Home = new model.define("name");
 
 new Car('Honda', 'CRV', '2.2', 5);
 

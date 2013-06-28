@@ -1,9 +1,9 @@
 
-##Graffinit
+##Graffmaker
 
 Simple data generation partner tool for Graffeine. Creates simple graph structures for testing in Neo4J.
 
-###Using Graffinit
+###Using Graffmaker
 
 ####Include Library
 
